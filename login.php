@@ -1,3 +1,9 @@
+<?php
+session_start();
+require './config/authFunction.php';
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -19,24 +25,24 @@
                         <a href="index.html"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
                         <h3 style="color: #05466c;">KELURAHAN GANDARIA</h3>
                     </div>
-                    <form class="pt-2">
+                    <form class="pt-2" method="post" action="">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
+                            <label for="exampleInputEmail1" class="form-label">Alamat Email or Username</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp" name="email">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Lihat Password</label>
                         </div>
-                        <button type="submit" class="btn btn-primary border-0 w-100"
-                            style="background-color: #005e95;">Masuk</button>
+                        <button type="submit" class="btn btn-primary border-0 w-100" style="background-color: #005e95;"
+                            name="Login">Masuk</button>
                     </form>
-                    <p class="pt-4 text-center">Belum Punya Akun? <a href="register.html" class="text-decoration-none"
+                    <p class="pt-4 text-center">Belum Punya Akun? <a href="register.php" class="text-decoration-none"
                             style="color: #005e95;">Daftar Disini</a>
                     </p>
                 </div>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+
+require './../config/authFunction.php';
+logedin();
+admin();
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -138,8 +149,11 @@
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html"
-                                            class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+
+                                        <form action="">
+                                            <a href="../logout.php"
+                                                class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                        </form>
                                     </div>
                                 </div>
                             </li>
@@ -151,7 +165,9 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title fw-semibold mb-4">Sample Page</h5>
+                        <h5 class="card-title fw-semibold mb-4">Sample Page
+                            <?= $_SESSION['nama'] ?>
+                        </h5>
                         <p class="mb-0">This is a sample page </p>
                     </div>
                 </div>
