@@ -1,3 +1,9 @@
+<?php
+session_start();
+require './config/authFunction.php';
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -16,37 +22,43 @@
                 <div class="w-100 border rounded-2 p-4">
                     <div class="d-flex gap-2 justify-content-center mb-2 align-items-center">
 
-                        <a href="index.html"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
+                        <a href="index.php"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
                         <h3 style="color: #05466c;">KELURAHAN GANDARIA</h3>
                     </div>
-                    <form class="pt-2">
+                    <form class="pt-2" action="" method="post">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                name="nama" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">No.Telp</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="number" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="no_telp" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Alamat Email</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Kata Sandi</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Konfirmasi Kata Sandi</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"
+                                name="confirm_password" required>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Lihat Password</label>
                         </div>
-                        <button type="submit" class="btn btn-primary border-0 w-100"
-                            style="background-color: #005e95;">Daftar</button>
+                        <button type="submit" class="btn btn-primary border-0 w-100" style="background-color: #005e95;"
+                            name="Register">Daftar</button>
                     </form>
-                    <p class="pt-4 text-center">Sudah Punya Akun? <a href="login.html" class="text-decoration-none"
+                    <p class="pt-4 text-center">Sudah Punya Akun? <a href="login.phps" class="text-decoration-none"
                             style="color: #005e95;">Silahkan
                             Masuk</a>
                     </p>
