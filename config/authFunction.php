@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-define('BASE_URL', 'http://localhost:89/kelurahan-gandaria/');
+define('BASE_URL', 'http://localhost:8080/kelurahan-gandaria/');
 
 // LOGIN FUNCTION
 if (isset($_POST['Login'])) {
@@ -35,7 +35,6 @@ if (isset($_POST['Login'])) {
                     ";
                     die;
                 }
-
             } else {
                 echo "
                 <script>
@@ -150,8 +149,6 @@ function logedin()
             header('Location:' . BASE_URL . 'login.php');
         }
     }
-
-
 }
 
 function admin()
