@@ -1,6 +1,12 @@
 <?php
 session_start();
 require './config/authFunction.php';
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    protectPage('user');
+} else {
+    protectPage('admin');
+}
+
 
 ?>
 

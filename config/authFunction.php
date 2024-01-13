@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-define('BASE_URL', 'http://localhost:8080/kelurahan-gandaria/');
+define('BASE_URL', 'http://localhost:89/kelurahan-gandaria/');
 
 // LOGIN FUNCTION
 if (isset($_POST['Login'])) {
@@ -30,7 +30,7 @@ if (isset($_POST['Login'])) {
                     echo "
                     <script>
                         alert('Berhasil Login!');
-                         window.location.href = 'index.php';
+                         window.location.href = 'admin/users.php';
                     </script>
                     ";
                     die;
@@ -64,6 +64,8 @@ if (isset($_POST['Login'])) {
     }
 }
 
+
+// REGISTER FUNCTION
 if (isset($_POST['Register'])) {
     $nama = $_POST['nama'];
     $email = $_POST['email'];
@@ -131,29 +133,67 @@ if (isset($_POST['Register'])) {
 }
 
 
-function logedin()
+function protectPage($role)
 {
-    global $conn;
-    // cek cookie
-    if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-        $id = $_COOKIE['id'];
-        $key = $_COOKIE['key'];
-        $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'");
-        $user = mysqli_fetch_assoc($query);
-        if ($key === md5($user['password'])) {
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['nama'] = $user['nama'];
+
+    // Cek apakah pengguna memiliki session 
+    if (isset($_SESSION['role'])) {
+
+        if ($role === 'admin') {
+            if ($_SERVER['REQUEST_URI'] == $_SERVER['REQUEST_URI'] && $_SESSION['role'] === 'admin') {
+
+            } else {
+                echo '<script>window.history.back()</script>';
+                exit();
+            }
+        }
+
+        if ($role === 'user') {
+            if ($_SERVER['REQUEST_URI'] == $_SERVER['REQUEST_URI'] && $_SESSION['role'] === 'user') {
+
+            } else {
+                echo '<script>window.history.back()</script>';
+                exit();
+            }
         }
     } else {
-        if (!isset($_SESSION['nama'])) {
+
+        if ($_SERVER['REQUEST_URI'] == '/kelurahan-gandaria/login.php') {
+        } else {
             header('Location:' . BASE_URL . 'login.php');
+            exit();
         }
+
     }
 }
 
-function admin()
-{
-    if (isset($_SESSION['level']) && $_SESSION['level'] === 'user') {
-        header('Location:' . BASE_URL);
-    }
-}
+
+
+// function logedin()
+// {
+//     global $conn;
+//     // cek cookie
+//     if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+//         $id = $_COOKIE['id'];
+//         $key = $_COOKIE['key'];
+//         $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'");
+//         $user = mysqli_fetch_assoc($query);
+//         if ($key === md5($user['password'])) {
+//             $_SESSION['id'] = $user['id'];
+//             $_SESSION['nama'] = $user['nama'];
+//         }
+//     } else {
+//         if (!isset($_SESSION['nama'])) {
+//             header('Location:' . BASE_URL . 'login.php');
+//         }
+//     }
+
+//     // if (isset($_SESSION['role']) && $_SERVER['REQUEST_URI'] == BASE_URL . '/login.php') {
+//     //     if ($_SESSION['role'] == 'admin') {
+//     //         header('Location:' . BASE_URL . '/admin/dashboard.php');
+//     //     } else {
+//     //         header('Location:' . BASE_URL . '/index.php');
+//     //     }
+//     // }
+// }
+

@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+require './../config/authFunction.php';
+protectPage('user');
+
+require 'userFunction.php';
+$users = getAllUser();
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -74,7 +88,7 @@
                             <span class="hide-menu">AUTH</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href=".login.html" aria-expanded="false">
+                            <a class="sidebar-link" href="./../logout.php" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-login"></i>
                                 </span>
@@ -138,7 +152,7 @@
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a href="./authentication-login.html"
+                                        <a href="./../logout.php"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
@@ -160,72 +174,37 @@
                                                 <table class="table mb-0">
                                                     <thead>
                                                         <tr>
-                                                            <th scope="col">EMPLOYEES</th>
-                                                            <th scope="col">POSITION</th>
-                                                            <th scope="col">CONTACTS</th>
-                                                            <th scope="col">AGE</th>
-                                                            <th scope="col">ADDRESS</th>
-                                                            <th scope="col">SALARY</th>
+                                                            <th scope="col">NO</th>
+                                                            <th scope="col">NAMA LENGKAP</th>
+                                                            <th scope="col">EMAIL</th>
+                                                            <th scope="col">NO. TELP</th>
+                                                            <th scope="col">ACTION</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Tiger Nixon</th>
-                                                            <td>System Architect</td>
-                                                            <td>tnixon12@example.com</td>
-                                                            <td>61</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Sonya Frost</th>
-                                                            <td>Software Engineer</td>
-                                                            <td>sfrost34@example.com</td>
-                                                            <td>23</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>$103,600</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Jena Gaines</th>
-                                                            <td>Office Manager</td>
-                                                            <td>jgaines75@example.com</td>
-                                                            <td>30</td>
-                                                            <td>London</td>
-                                                            <td>$90,560</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Quinn Flynn</th>
-                                                            <td>Support Lead</td>
-                                                            <td>qflyn09@example.com</td>
-                                                            <td>22</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>$342,000</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Charde Marshall</th>
-                                                            <td>Regional Director</td>
-                                                            <td>cmarshall28@example.com</td>
-                                                            <td>36</td>
-                                                            <td>San Francisco</td>
-                                                            <td>$470,600</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Haley Kennedy</th>
-                                                            <td>Senior Marketing Designer</td>
-                                                            <td>hkennedy63@example.com</td>
-                                                            <td>43</td>
-                                                            <td>London</td>
-                                                            <td>$313,500</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row" style="color: #666666;">Tatyana Fitzpatrick
-                                                            </th>
-                                                            <td>Regional Director</td>
-                                                            <td>tfitzpatrick00@example.com</td>
-                                                            <td>19</td>
-                                                            <td>Warsaw</td>
-                                                            <td>$385,750</td>
-                                                        </tr>
+                                                        <?php
+                                                        $no = 1;
+                                                        foreach ($users as $user):
+                                                            ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <?= $no++ ?>
+                                                                </td>
+                                                                <th scope="row" style="color: #666666;">
+                                                                    <?= $user['nama_lengkap'] ?>
+                                                                </th>
+                                                                <td>
+                                                                    <?= $user['email'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?= $user['no_telp'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <button>HAPUS</button>
+                                                                    <button>EDIT</button>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
                                                     </tbody>
                                                 </table>
                                             </div>

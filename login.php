@@ -1,6 +1,15 @@
 <?php
 session_start();
+
 require './config/authFunction.php';
+
+if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    protectPage('user');
+} else {
+    protectPage('admin');
+}
+
+
 
 ?>
 
@@ -27,7 +36,7 @@ require './config/authFunction.php';
                     </div>
                     <form class="pt-2" method="post" action="">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Alamat Email or Username</label>
+                            <label for="exampleInputEmail1" class="form-label">Alamat Email </label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" name="email">
                         </div>
