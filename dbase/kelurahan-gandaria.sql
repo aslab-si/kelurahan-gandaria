@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2024 at 12:08 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jan 14, 2024 at 05:32 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `kelurahan-gandaria`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `author` varchar(10) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id`, `judul`, `author`, `gambar`, `isi`, `created_at`) VALUES
+(7, 'TESTERRRRRRRRRRRRR', '', 'TXT BLUE HOUR.jpeg', 'tes satu dua 3 4 56', '2024-01-14 16:30:10');
 
 -- --------------------------------------------------------
 
@@ -42,12 +64,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama_lengkap`, `email`, `no_telp`, `password`, `avatar`, `role`) VALUES
-(1, 'Daffa Arsyad', 'dffreyhan10@gmail.com', '085881839674', '$2y$10$YUECraOMaV/.sApV1sZRw.fislQaABdDTNXYvbzjrSNtej2b4ai02', NULL, 'user'),
-(2, 'daffa', 'darey@gmail.com', '0854546466', '$2y$10$C02nebjhCUYYe/th1wQ9BOXyvKknCDGMUqnsKWQpkj/q14RwNz4Nq', NULL, 'admin');
+(2, 'daffa', 'darey@gmail.com', '0854546466', '$2y$10$LKuzIjWBwVYFdY1a523BCuS657DXwTLfIBqAWANVa6d6RcAFr.ETO', NULL, 'admin'),
+(4, 'daffafaa', 'dar@gmail.com', '093243432', '$2y$10$LKuzIjWBwVYFdY1a523BCuS657DXwTLfIBqAWANVa6d6RcAFr.ETO', NULL, 'user');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -60,10 +88,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

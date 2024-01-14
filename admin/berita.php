@@ -1,14 +1,12 @@
 <?php
 session_start();
-
 require './../config/authFunction.php';
 protectPage('admin');
 
-$query = "SELECT id,nama_lengkap,email,no_telp,role FROM users WHERE role = 'user'";
-$getAllUser = mysqli_query($conn, $query);
+$query = "SELECT * FROM berita";
+$getAllBerita = mysqli_query($conn, $query);
 
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -37,6 +35,7 @@ $getAllUser = mysqli_query($conn, $query);
             <!--  Header Start -->
             <?php require './component/header.php'; ?>
             <div class="container-fluid">
+                <a href="tambahBerita.php" class="btn btn-primary mb-1">+ Tambah</a>
                 <div class="card">
                     <section class="intro">
                         <div class="gradient-custom-1 h-100">
@@ -49,17 +48,17 @@ $getAllUser = mysqli_query($conn, $query);
                                                     <thead>
                                                         <tr>
                                                             <th scope="col">NO</th>
-                                                            <th scope="col">NAMA LENGKAP</th>
-                                                            <th scope="col">EMAIL</th>
-                                                            <th scope="col">NO. TELP</th>
+                                                            <th scope="col">Gambar</th>
+                                                            <th scope="col">Judul</th>
+                                                            <th scope="col">Isi</th>
                                                             <th scope="col">ACTION</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php if (mysqli_num_rows($getAllUser) > 0): ?>
+                                                        <?php if (mysqli_num_rows($getAllBerita) > 0): ?>
                                                             <?php
                                                             $no = 1;
-                                                            foreach ($getAllUser as $user):
+                                                            foreach ($getAllBerita as $berita):
 
                                                                 ?>
                                                                 <tr>
@@ -67,20 +66,24 @@ $getAllUser = mysqli_query($conn, $query);
                                                                         <?= $no++ ?>
                                                                     </td>
                                                                     <th scope="row" style="color: #666666;">
-                                                                        <?= $user['nama_lengkap'] ?>
+                                                                        <img src="./../image/berita/<?= $berita['gambar'] ?>"
+                                                                            alt="" style="width: 200px; height: 100px;">
+
                                                                     </th>
                                                                     <td>
-                                                                        <?= $user['email'] ?>
+                                                                        <?= $berita['judul'] ?>
                                                                     </td>
                                                                     <td>
-                                                                        <?= $user['no_telp'] ?>
+                                                                        <?= $berita['isi'] ?>
                                                                     </td>
                                                                     <td>
-                                                                        <a href="./process/deleteUser.php?id=<?= $user['id'] ?>"
+                                                                        <a href="./editBerita.php?id=<?= $berita['id'] ?>"
+                                                                            class="btn btn-success"><i
+                                                                                class="ti ti-pencil"></i>Edit</a>
+                                                                        <a href="./process/deleteBerita.php?id=<?= $berita['id'] ?>"
                                                                             onclick="return confirm('Yakin Hapus User ini?')"
                                                                             class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>
-
                                                                     </td>
                                                                 </tr>
                                                             <?php endforeach; ?>
@@ -101,27 +104,11 @@ $getAllUser = mysqli_query($conn, $query);
                 </div>
             </div>
         </div>
-    </div>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/sidebarmenu.js"></script>
-    <script src="assets/js/app.min.js"></script>
-    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
-    <script>
-        function confirmDelete() {
-            // Tampilkan konfirmasi dan ambil jawaban dari pengguna
-            var result = confirm("Apakah Anda yakin ingin menghapus data?");
-
-            // Jika jawaban adalah true (OK), kirimkan permintaan hapus ke server
-            if (result) {
-                return true;
-            } else {
-                // Jika jawaban adalah false (Cancel), batalkan pengiriman permintaan hapus
-                alert("Penghapusan dibatalkan.");
-                return false;
-            }
-        }
-    </script>
+        <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/sidebarmenu.js"></script>
+        <script src="assets/js/app.min.js"></script>
+        <script src="assets/libs/simplebar/dist/simplebar.js"></script>
 </body>
 
 </html>
