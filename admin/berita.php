@@ -76,7 +76,7 @@ $getAllBerita = mysqli_query($conn, $query);
 
                                                                     <td>
                                                                         <a href="./editBerita.php?id=<?= $berita['id'] ?>" class="btn btn-success"><i class="ti ti-pencil"></i>Edit</a>
-                                                                        <a href="./process/deleteBerita.php?id=<?= $berita['id'] ?>" onclick="return confirm('Yakin Hapus User ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
+                                                                        <a href="./process/deleteBerita.php?id=<?= $berita['id'] ?>" onclick="return confirm('Yakin Hapus Data ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>
                                                                     </td>
                                                                 </tr>
