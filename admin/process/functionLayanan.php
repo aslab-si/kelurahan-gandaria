@@ -27,40 +27,27 @@ if (isset($_POST['tambahLayanan'])) {
 }
 // Tutup koneksi ke database
 
-// FUNCTION UPDATE BERITA
-// if (isset($_POST['editBerita'])) {
-//     $id = $_POST['id'];
-//     $judul = $_POST['judul'];
-//     $isi = $_POST['isi'];
+// FUNCTION UPDATE Layanan
+if (isset($_POST['editLayanan'])) {
+    $id = $_POST['id'];
+    $judul = $_POST['judul'];
+    $isi = $_POST['isi'];
 
-//     // Jika ada file gambar yang diunggah, proses upload
-//     if ($_FILES['gambar']['size'] > 0) {
-//         $uploadDir = './../../image/berita/';
-//         $gambarName = $_FILES['gambar']['name'];
-//         $gambarTmpName = $_FILES['gambar']['tmp_name'];
-//         $gambarPath = $uploadDir . $gambarName;
+    $sql = "UPDATE layanan SET judul='$judul', isi='$isi' WHERE id=$id";
 
-//         move_uploaded_file($gambarTmpName, $gambarPath);
-//         deletePicture($id);
-//         // Update informasi berita ke dalam database dengan gambar baru
-//         $sql = "UPDATE berita SET judul='$judul', gambar='$gambarName', isi='$isi' WHERE id=$id";
-//     } else {
-//         // Jika tidak ada file gambar yang diunggah, update tanpa merubah gambar
-//         $sql = "UPDATE berita SET judul='$judul', isi='$isi' WHERE id=$id";
-//     }
 
-//     // Eksekusi query update
-//     $update = mysqli_query($conn, $sql);
+    // Eksekusi query update
+    $update = mysqli_query($conn, $sql);
 
-//     if ($update) {
-//         echo "<script>
-//                 alert('Berhasil mengupdate berita!');
-//                 window.location.href = './../berita.php';
-//               </script>";
-//     } else {
-//         echo "<script>
-//                 alert('Gagal mengupdate berita!');
-//                 window.history.back()';
-//                </script>";
-//     }
-// }
+    if ($update) {
+        echo "<script>
+                alert('Berhasil mengupdate layanan!');
+                window.location.href = './../layanan.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Gagal mengupdate layanan!');
+                window.history.back()';
+               </script>";
+    }
+}

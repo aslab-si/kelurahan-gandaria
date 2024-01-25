@@ -70,8 +70,8 @@ $getAllLayanan = mysqli_query($conn, $query);
                                                                     <td><?= $layanan['isi'] ?></td>
 
                                                                     <td>
-                                                                        <a href="./editBerita.php?id=<?= $layanan['id'] ?>" class="btn btn-success"><i class="ti ti-pencil"></i>Edit</a>
-                                                                        <a href="./process/deleteBerita.php?id=<?= $layanan['id'] ?>" onclick="return confirm('Yakin Hapus User ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
+                                                                        <a href="./editLayanan.php?id=<?= $layanan['id'] ?>" class="btn btn-success"><i class="ti ti-pencil"></i>Edit</a>
+                                                                        <a href="./process/deleteLayanan.php?id=<?= $layanan['id'] ?>" onclick="return confirm('Yakin Hapus Data ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>
                                                                     </td>
                                                                 </tr>
