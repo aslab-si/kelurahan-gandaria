@@ -3,7 +3,7 @@ session_start();
 
 require './../config/authFunction.php';
 protectPage('admin');
-var_dump($_SESSION);
+// var_dump($_SESSION);
 ?>
 
 <!doctype html>

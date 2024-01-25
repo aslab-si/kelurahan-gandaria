@@ -26,8 +26,7 @@ $getAllBerita = mysqli_query($conn, $query);
 
 <body>
     <!--  Body Wrapper -->
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
         <?php require './component/sidebar.php'; ?>
         <!--  Main wrapper -->
@@ -55,39 +54,34 @@ $getAllBerita = mysqli_query($conn, $query);
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php if (mysqli_num_rows($getAllBerita) > 0): ?>
+                                                        <?php if (mysqli_num_rows($getAllBerita) > 0) : ?>
                                                             <?php
                                                             $no = 1;
-                                                            foreach ($getAllBerita as $berita):
+                                                            foreach ($getAllBerita as $berita) :
 
-                                                                ?>
+                                                            ?>
                                                                 <tr>
                                                                     <td>
                                                                         <?= $no++ ?>
                                                                     </td>
                                                                     <th scope="row" style="color: #666666;">
-                                                                        <img src="./../image/berita/<?= $berita['gambar'] ?>"
-                                                                            alt="" style="width: 200px; height: 100px;">
+                                                                        <img src="./../image/berita/<?= $berita['gambar'] ?>" alt="" style="width: 200px; height: 100px;">
 
                                                                     </th>
                                                                     <td>
-                                                                        <?= $berita['judul'] ?>
+                                                                        <?= substr($berita['judul'], 0, 20) ?>...
                                                                     </td>
+                                                                    <td><?= substr($berita['isi'], 0, 50) ?>...</td>
+
+
                                                                     <td>
-                                                                        <?= $berita['isi'] ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <a href="./editBerita.php?id=<?= $berita['id'] ?>"
-                                                                            class="btn btn-success"><i
-                                                                                class="ti ti-pencil"></i>Edit</a>
-                                                                        <a href="./process/deleteBerita.php?id=<?= $berita['id'] ?>"
-                                                                            onclick="return confirm('Yakin Hapus User ini?')"
-                                                                            class="btn btn-danger"><i class="ti ti-trash"></i>
+                                                                        <a href="./editBerita.php?id=<?= $berita['id'] ?>" class="btn btn-success"><i class="ti ti-pencil"></i>Edit</a>
+                                                                        <a href="./process/deleteBerita.php?id=<?= $berita['id'] ?>" onclick="return confirm('Yakin Hapus User ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>
                                                                     </td>
                                                                 </tr>
                                                             <?php endforeach; ?>
-                                                        <?php else: ?>
+                                                        <?php else : ?>
                                                             <tr>
                                                                 <td colspan="5" class="text-center">Tidak ada data</td>
                                                             </tr>
@@ -109,6 +103,9 @@ $getAllBerita = mysqli_query($conn, $query);
         <script src="assets/js/sidebarmenu.js"></script>
         <script src="assets/js/app.min.js"></script>
         <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+        <script>
+
+        </script>
 </body>
 
 </html>
