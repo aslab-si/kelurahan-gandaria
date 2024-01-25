@@ -233,7 +233,7 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body"><code>*dokumen yang dibutuhkan</code></div>
+                                    <div class="accordion-body"><code>*persyaratan</code></div>
                                     <div class="accordion-body"><?= $layanan['isi'] ?></div>
                                 </div>
                             </div>
