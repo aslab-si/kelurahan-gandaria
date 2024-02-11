@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 07:52 AM
+-- Generation Time: Feb 11, 2024 at 11:34 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -46,6 +46,48 @@ INSERT INTO `berita` (`id`, `judul`, `author`, `gambar`, `isi`, `created_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `layanan`
+--
+
+CREATE TABLE `layanan` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `layanan`
+--
+
+INSERT INTO `layanan` (`id`, `judul`, `isi`, `created_at`) VALUES
+(2, 'Pembuatan KTP Baru 17 Tahun', '<ol>\r\n<li>Fotocopy Kartu Keluarga</li>\r\n<li>Fotocopy Akta Lahir/Ijazah</li>\r\n</ol>', '2024-01-25 07:30:29'),
+(3, 'asdadsas', '<ul>\r\n<li>adsadsdasasdad</li>\r\n<li>asdadsads</li>\r\n<li>qweqweqweqw</li>\r\n</ul>', '2024-01-25 07:30:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengaduan`
+--
+
+CREATE TABLE `pengaduan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subjek` varchar(255) NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengaduan`
+--
+
+INSERT INTO `pengaduan` (`id`, `nama`, `email`, `subjek`, `isi`) VALUES
+(4, 'Ghifarry', 'ghifarry@gmail.com', 'kemalingan di rumah tetangga', 'ada kemalingan diruma tetangga saya');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -64,10 +106,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nama_lengkap`, `email`, `no_telp`, `password`, `avatar`, `role`) VALUES
-(2, 'daffa', 'darey@gmail.com', '0854546466', '$2y$10$LKuzIjWBwVYFdY1a523BCuS657DXwTLfIBqAWANVa6d6RcAFr.ETO', NULL, 'admin'),
-(4, 'daffafaa', 'dar@gmail.com', '093243432', '$2y$10$LKuzIjWBwVYFdY1a523BCuS657DXwTLfIBqAWANVa6d6RcAFr.ETO', NULL, 'user'),
-(5, 'admin', 'admin@gmail.com', '08298929829822', '$2y$10$W6QnxOPLXvf4aUDBfQaXx.Kyyr1GCL1cBWuC/Zlb392vuHpqzSMx2', NULL, 'admin'),
-(6, 'vito', 'vito@mail.com', '0855223123', '$2y$10$bN7grJ/EwANLMsJFBW30VencQtvNOIypnOQijoIZWUMv.vI1fZocK', NULL, 'user');
+(5, 'admin', 'admin@gmail.com', '08298929829822', '$2y$10$W6QnxOPLXvf4aUDBfQaXx.Kyyr1GCL1cBWuC/Zlb392vuHpqzSMx2', NULL, 'admin');
 
 --
 -- Indexes for dumped tables
@@ -77,6 +116,18 @@ INSERT INTO `users` (`id`, `nama_lengkap`, `email`, `no_telp`, `password`, `avat
 -- Indexes for table `berita`
 --
 ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `layanan`
+--
+ALTER TABLE `layanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengaduan`
+--
+ALTER TABLE `pengaduan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -94,6 +145,18 @@ ALTER TABLE `users`
 --
 ALTER TABLE `berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `layanan`
+--
+ALTER TABLE `layanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `pengaduan`
+--
+ALTER TABLE `pengaduan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
