@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './config/connection.php    ';
+require './config/connection.php';
 $query = "SELECT * FROM berita";
 $getAllBerita = mysqli_query($conn, $query);
 
@@ -130,8 +130,6 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
                             <p class="animate__animated animate__fadeInUp">Akses informasi pelayanan kelurahan dengan cepat dan efisien.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a>
                         </div>
                     </div>
                 </div>
@@ -142,8 +140,6 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
                             <p class="animate__animated animate__fadeInUp">Navigasi yang mudah, informasi yang lengkap.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a>
                         </div>
                     </div>
                 </div>
@@ -154,8 +150,6 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
                             <p class="animate__animated animate__fadeInUp">Sederhana, informatif, dan selalu terupdate.</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                                More</a>
                         </div>
                     </div>
                 </div>
@@ -216,7 +210,7 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                         <?php foreach ($getAllLayanan as $key => $layanan) : ?>
                             <div class="accordion-item border">
                                 <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $key ?>" aria-expanded="false" aria-controls="flush-collapse<?= $key ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $key ?>" aria-expanded="false" aria-controls="flush-collapse<?= $key ?>">
                                         <?= $layanan['judul'] ?>
                                     </button>
                                 </h2>
@@ -238,9 +232,7 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                 <div class="container">
                     <div class="section-title">
                         <h2 class="text-light">Hubungi Kami</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
-                            sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
-                            ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <p>Berikan pengaduan seputar kelurahan gandaria utara.</p>
                     </div>
                     <div class="row">
                         <div class="col-lg-5 d-flex align-items-stretch">
@@ -248,47 +240,42 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                                 <div class="address">
                                     <i class="bi bi-geo-alt"></i>
                                     <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
                                 </div>
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
                                     <h4>Email:</h4>
-                                    <p>info@example.com</p>
+                                    <p>kelgandaria@gmail.com</p>
                                 </div>
                                 <div class="phone">
                                     <i class="bi bi-phone"></i>
                                     <h4>Call:</h4>
-                                    <p>+1 5589 55488 55s</p>
+                                    <p>+62 7402382</p>
                                 </div>
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.214889073555!2d106.78066526849585!3d-6.256653569639763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f10bab51c503%3A0x9d54c2c8e4f594ce!2sGandaria%20Utara%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1704864880455!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <form action="config/functionPengaduan.php" method="post" class="php-email-form">
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="name">Your Name</label>
-                                        <input type="text" name="name" class="form-control" id="name" required>
+                                        <label for="nama">Your Name</label>
+                                        <input type="text" name="nama" class="form-control" id="nama" required>
                                     </div>
                                     <div class="form-group col-md-6 mt-3 mt-md-0">
-                                        <label for="name">Your Email</label>
+                                        <label for="email">Your Email</label>
                                         <input type="email" class="form-control" name="email" id="email" required>
                                     </div>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <label for="name">Subject</label>
-                                    <input type="text" class="form-control" name="subject" id="subject" required>
+                                    <label for="subjek">Subject</label>
+                                    <input type="text" class="form-control" name="subjek" id="subjek" required>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <label for="name">Message</label>
-                                    <textarea class="form-control" name="message" rows="10" required></textarea>
+                                    <label for="isi">Message</label>
+                                    <textarea class="form-control" id="isi" name="isi" rows="10" required></textarea>
                                 </div>
-                                <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
+                                <button type="submit" name="tambahPengaduan">Send Message</button>
                             </form>
                         </div>
                     </div>
@@ -308,9 +295,7 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                 <a href="index.html"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
                 <h3>KELURAHAN GANDARIA</h3>
             </div>
-            <p class="mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius quasi, magnam quia accusamus
-                doloremque
-                voluptatum nisi. Nihil laboriosam incidunt tenetur!</p>
+            <p class="mb-4">Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
             <div class="social-links">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

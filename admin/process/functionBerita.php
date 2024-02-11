@@ -32,7 +32,7 @@ if (isset($_POST['tambahBerita'])) {
               </script>";
     } else {
         echo "<script>
-                alert('Berhasil menambahkan berita!');
+                alert('Gagal menambahkan berita!');
                 window.history.back()';
                </script>";
     }
