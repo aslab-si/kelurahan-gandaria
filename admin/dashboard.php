@@ -81,7 +81,7 @@ $getAllPengaduan = mysqli_query($conn, $query);
                                                                         <?= $pengaduan['isi'] ?>
                                                                     </td>
                                                                     <td>
-                                                                        <a href="./process/deleteUser.php?id=<?= $pengaduan['id'] ?>" onclick="return confirm('Yakin Hapus Pengaduan ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
+                                                                        <a href="./process/deletePengaduan.php?id=<?= $pengaduan['id'] ?>" onclick="return confirm('Yakin Hapus Pengaduan ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>
                                                                     </td>
                                                                 </tr>

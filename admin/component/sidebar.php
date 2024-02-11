@@ -31,14 +31,14 @@
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">FEATURES</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link <?php $_SERVER['REQUEST_URI'] === $_SERVER['REQUEST_URI'] ? 'active' : '' ?>" href="./users.php" aria-expanded="false">
+                <!-- <li class="sidebar-item">
+                    <a class="sidebar-link <?php // $_SERVER['REQUEST_URI'] === $_SERVER['REQUEST_URI'] ? 'active' : '' ?>" href="./users.php" aria-expanded="false">
                         <span>
                             <i class="ti ti-users"></i>
                         </span>
                         <span class="hide-menu">Users</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="sidebar-item">
                     <a class="sidebar-link <?php $_SERVER['REQUEST_URI'] === $_SERVER['REQUEST_URI'] ? 'active' : '' ?>" href="./berita.php" aria-expanded="false">
                         <span>
