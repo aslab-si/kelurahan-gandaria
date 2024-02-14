@@ -69,7 +69,7 @@ $getAllLayanan = mysqli_query($conn, $query);
                                                                     </td>
                                                                     <td><?= $layanan['isi'] ?></td>
 
-                                                                    <td>
+                                                                    <td style="width: 300px;">
                                                                         <a href="./editLayanan.php?id=<?= $layanan['id'] ?>" class="btn btn-success"><i class="ti ti-pencil"></i>Edit</a>
                                                                         <a href="./process/deleteLayanan.php?id=<?= $layanan['id'] ?>" onclick="return confirm('Yakin Hapus Data ini?')" class="btn btn-danger"><i class="ti ti-trash"></i>
                                                                             Hapus</a>

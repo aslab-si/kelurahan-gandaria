@@ -82,8 +82,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center gap-2">
 
-            <a href="index.html"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
-            <h1 class="logo me-auto"><a href="index.html">Kelurahan Gandaria</a></h1>
+            <a href="http://localhost/kelurahan-gandaria"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
+            <h1 class="logo me-auto"><a href="http://localhost/kelurahan-gandaria">Kelurahan Gandaria</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
 
             <nav id="navbar" class="navbar">
@@ -180,12 +180,12 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                 <div class="row">
                     <?php foreach ($getAllBerita as $berita) : ?>
                         <div class="col-lg-3 mb-4">
-                            <div class="card" style="width: 100%;">
+                            <div class="card" style="height: 100%;">
                                 <img src="./image/berita/<?= $berita['gambar'] ?>" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title fw-bold line-clamp-judul"><?= $berita['judul'] ?> </h5>
-                                    <p class="card-text line-clamp-isi"><?= $berita['isi'] ?></p>
-                                    <a href="berita.php" class="btn btn-primary w-100" style="background-color: #005e95;">Lihat</a>
+                                    <p class="card-text line-clamp-isi"><?= substr($berita['isi'], 0, 50) ?>...</p>
+                                    <a href="berita.php?id=<?= $berita["id"] ?>" class="btn btn-primary w-100" style="background-color: #005e95;">Lihat</a>
                                 </div>
                             </div>
                         </div>
