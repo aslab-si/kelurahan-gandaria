@@ -25,7 +25,9 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
     <link href="assets/img/jakarta-logo.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -35,8 +37,13 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Sweet Alert-->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+
     <!-- Main CSS File -->
     <link href="css/style.css" rel="stylesheet">
+
+
 
 
 </head>
@@ -82,7 +89,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex align-items-center gap-2">
 
-            <a href="http://localhost/kelurahan-gandaria"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
+            <a href="http://localhost/kelurahan-gandaria"><img src="assets/img/jakarta-logo.png" alt="" width="50"
+                    height="50"></a>
             <h1 class="logo me-auto"><a href="http://localhost/kelurahan-gandaria">Kelurahan Gandaria</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
 
@@ -129,7 +137,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
-                            <p class="animate__animated animate__fadeInUp">Akses informasi pelayanan kelurahan dengan cepat dan efisien.</p>
+                            <p class="animate__animated animate__fadeInUp">Akses informasi pelayanan kelurahan dengan
+                                cepat dan efisien.</p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +148,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
-                            <p class="animate__animated animate__fadeInUp">Navigasi yang mudah, informasi yang lengkap.</p>
+                            <p class="animate__animated animate__fadeInUp">Navigasi yang mudah, informasi yang lengkap.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -149,7 +159,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                     <div class="carousel-container">
                         <div class="container">
                             <h2 class="animate__animated animate__fadeInDown">Kelurahan Gandaria</h2>
-                            <p class="animate__animated animate__fadeInUp">Sederhana, informatif, dan selalu terupdate.</p>
+                            <p class="animate__animated animate__fadeInUp">Sederhana, informatif, dan selalu terupdate.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -178,14 +189,20 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                 </div>
 
                 <div class="row">
-                    <?php foreach ($getAllBerita as $berita) : ?>
+                    <?php foreach ($getAllBerita as $berita): ?>
                         <div class="col-lg-3 mb-4">
                             <div class="card" style="height: 100%;">
-                                <img src="./image/berita/<?= $berita['gambar'] ?>" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
+                                <img src="./image/berita/<?= $berita['gambar'] ?>" class="card-img-top" alt="..."
+                                    style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
-                                    <h5 class="card-title fw-bold line-clamp-judul"><?= $berita['judul'] ?> </h5>
-                                    <p class="card-text line-clamp-isi"><?= substr($berita['isi'], 0, 50) ?>...</p>
-                                    <a href="berita.php?id=<?= $berita["id"] ?>" class="btn btn-primary w-100" style="background-color: #005e95;">Lihat</a>
+                                    <h5 class="card-title fw-bold line-clamp-judul">
+                                        <?= $berita['judul'] ?>
+                                    </h5>
+                                    <p class="card-text line-clamp-isi">
+                                        <?= substr($berita['isi'], 0, 50) ?>...
+                                    </p>
+                                    <a href="berita.php?id=<?= $berita["id"] ?>" class="btn btn-primary w-100"
+                                        style="background-color: #005e95;">Lihat</a>
                                 </div>
                             </div>
                         </div>
@@ -207,16 +224,21 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
 
                 <div class="row">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <?php foreach ($getAllLayanan as $key => $layanan) : ?>
+                        <?php foreach ($getAllLayanan as $key => $layanan): ?>
                             <div class="accordion-item border">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $key ?>" aria-expanded="false" aria-controls="flush-collapse<?= $key ?>">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse<?= $key ?>" aria-expanded="false"
+                                        aria-controls="flush-collapse<?= $key ?>">
                                         <?= $layanan['judul'] ?>
                                     </button>
                                 </h2>
-                                <div id="flush-collapse<?= $key ?>" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapse<?= $key ?>" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body"><code>*persyaratan</code></div>
-                                    <div class="accordion-body"><?= $layanan['isi'] ?></div>
+                                    <div class="accordion-body">
+                                        <?= $layanan['isi'] ?>
+                                    </div>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -240,7 +262,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                                 <div class="address">
                                     <i class="bi bi-geo-alt"></i>
                                     <h4>Location:</h4>
-                                    <p>Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
+                                    <p>Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota
+                                        Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
                                 </div>
                                 <div class="email">
                                     <i class="bi bi-envelope"></i>
@@ -252,7 +275,10 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                                     <h4>Call:</h4>
                                     <p>+62 7402382</p>
                                 </div>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.214889073555!2d106.78066526849585!3d-6.256653569639763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f10bab51c503%3A0x9d54c2c8e4f594ce!2sGandaria%20Utara%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1704864880455!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15864.214889073555!2d106.78066526849585!3d-6.256653569639763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f10bab51c503%3A0x9d54c2c8e4f594ce!2sGandaria%20Utara%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1704864880455!5m2!1sid!2sid"
+                                    frameborder="0" style="border:0; width: 100%; height: 290px;"
+                                    allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
@@ -295,7 +321,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
                 <a href="index.html"><img src="assets/img/jakarta-logo.png" alt="" width="50" height="50"></a>
                 <h3>KELURAHAN GANDARIA</h3>
             </div>
-            <p class="mb-4">Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
+            <p class="mb-4">Jl. Taman Radio Dalam VII No.5, RT.5/RW.15, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta
+                Selatan, Daerah Khusus Ibukota Jakarta 12140</p>
             <div class="social-links">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -310,7 +337,8 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
         </div>
     </footer><!-- End Footer -->
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -321,6 +349,36 @@ $getAllLayanan = mysqli_query($conn, $queryLayanan);
 
     <!-- Template Main JS File -->
     <script src="js/main.js"></script>
+
+    <!-- Sweeet Alert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+
+
+
+    <script src="js/sweetAlert.js"></script>
+
+
+    <?php
+    if (isset($_SESSION['success'])) {
+
+        $text = $_SESSION['text'];
+
+        if ($_SESSION['success'] == true) {
+            echo "<script>";
+            echo "Success('$text');";
+            echo "</script>";
+        } else {
+            echo "<script>";
+            echo "Failed('$text');";
+            echo "</script>";
+        }
+
+        // Hapus data sesi "success" agar SweetAlert tidak ditampilkan lagi pada kunjungan berikutnya
+        unset($_SESSION['success']);
+        unset($_SESSION['text']);
+    }
+    ?>
+
 
 </body>
 

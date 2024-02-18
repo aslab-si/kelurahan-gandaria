@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'connection.php';
 
 if (isset($_POST['tambahPengaduan'])) {
@@ -11,14 +12,13 @@ if (isset($_POST['tambahPengaduan'])) {
     $tambah = mysqli_query($conn, $sql);
 
     if ($tambah) {
-        echo "<script>
-                alert('Berhasil mengirim pengaduan!');
-                window.location.href = '../index.php';
-              </script>";
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Pengaduan berhasil di kirim ! ';
+        header('location:../index.php');
+
     } else {
-        echo "<script>
-                alert('Gagal mengirim pengaduan!');
-                window.history.back();
-               </script>";
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Pengaduan gagal di kirim ! ';
+        header('location:../index.php');
     }
 }

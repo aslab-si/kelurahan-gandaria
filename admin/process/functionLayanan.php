@@ -14,15 +14,14 @@ if (isset($_POST['tambahLayanan'])) {
     $tambah = mysqli_query($conn, $sql);
 
     if ($tambah) {
-        echo "<script>
-                alert('Berhasil menambahkan layanan!');
-                window.location.href = './../layanan.php';
-              </script>";
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Berhasil menambahkan layanan! ';
+        header('location:../layanan.php');
     } else {
-        echo "<script>
-                alert('Gagal menambahkan layanan!');
-                window.history.back()';
-               </script>";
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Gagal menambahkan layanan! ';
+        header('location:../layanan.php');
+        ;
     }
 }
 // Tutup koneksi ke database
@@ -40,14 +39,12 @@ if (isset($_POST['editLayanan'])) {
     $update = mysqli_query($conn, $sql);
 
     if ($update) {
-        echo "<script>
-                alert('Berhasil mengupdate layanan!');
-                window.location.href = './../layanan.php';
-              </script>";
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Berhasil mengubah layanan! ';
+        header('location:../layanan.php');
     } else {
-        echo "<script>
-                alert('Gagal mengupdate layanan!');
-                window.history.back()';
-               </script>";
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Gagal mengubah layanan! ';
+        header('location:../layanan.php');
     }
 }

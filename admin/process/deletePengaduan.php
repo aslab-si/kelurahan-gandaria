@@ -9,14 +9,16 @@ if (isset($_GET['id'])) {
     $query = "DELETE FROM pengaduan WHERE id = '$idPengaduan'";
     $hapus = mysqli_query($conn, $query);
     if ($hapus) {
-        echo '<script>
-    alert("Data Berhasil dihapus");
-    window.history.back();</script>';
+
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = "Data pengaduan berhasil dihapus!";
+
+        echo '<script>window.history.back();</script>';
     } else {
-        echo '<script>
-    alert("Data gagal di hapus");
-    window.history.back();
-    </script>';
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = "Data pengaduan gagal dihapus!";
+
+        echo '<script>window.history.back();</script>';
     }
 } else {
     echo '<script>window.history.back()</script>';

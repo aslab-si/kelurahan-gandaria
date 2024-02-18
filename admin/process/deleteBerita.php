@@ -20,14 +20,13 @@ if (isset($_GET['id'])) {
     deletePicture($idBerita);
     $hapus = mysqli_query($conn, $query);
     if ($hapus) {
-        echo '<script>
-    alert("Berita Berhasil dihapus");
-    window.history.back();</script>';
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Berhasil menghapus berita! ';
+        header('location:../berita.php');
     } else {
-        echo '<script>
-    alert("Data gagal di hapus");
-    window.history.back();
-    </script>';
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Gagal menghapus berita! ';
+        header('location:../berita.php');
     }
 } else {
     echo '<script>window.history.back()</script>';

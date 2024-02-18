@@ -26,15 +26,13 @@ if (isset($_POST['tambahBerita'])) {
     $tambah = mysqli_query($conn, $sql);
 
     if ($tambah) {
-        echo "<script>
-                alert('Berhasil menambahkan berita!');
-                window.location.href = './../berita.php';
-              </script>";
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Berhasil menambahkan berita! ';
+        header('location:../berita.php');
     } else {
-        echo "<script>
-                alert('Gagal menambahkan berita!');
-                window.history.back()';
-               </script>";
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Gagal menambahkan berita! ';
+        header('location:../berita.php');
     }
 }
 // Tutup koneksi ke database
@@ -78,14 +76,13 @@ if (isset($_POST['editBerita'])) {
     $update = mysqli_query($conn, $sql);
 
     if ($update) {
-        echo "<script>
-                alert('Berhasil mengupdate berita!');
-                window.location.href = './../berita.php';
-              </script>";
+        $_SESSION['success'] = true;
+        $_SESSION['text'] = 'Berhasil mengubah berita! ';
+        header('location:../berita.php');
     } else {
-        echo "<script>
-                alert('Gagal mengupdate berita!');
-                window.history.back()';
-               </script>";
+        $_SESSION['success'] = false;
+        $_SESSION['text'] = 'Gagal mengubah berita! ';
+        header('location:../berita.php');
+        ;
     }
 }

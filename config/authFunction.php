@@ -1,6 +1,6 @@
 <?php
 require 'connection.php';
-define('BASE_URL', 'http://localhost/kelurahan-gandaria/');
+define('BASE_URL', 'http://localhost:89/kelurahan-gandaria/');
 
 // LOGIN FUNCTION
 if (isset($_POST['Login'])) {
